@@ -123,6 +123,19 @@ export default defineConfig({
           text: '📝 在 GitHub 上编辑此页',
         },
       },
+      {
+        lang: 'es',
+        label: 'Español',
+        title: 'Rsbuild',
+        prevPageText: 'Página anterior',
+        nextPageText: 'Página siguiente',
+        description: 'Herramienta de construcción web basada en Rspack',
+        editLink: {
+          docRepoBaseUrl:
+            'https://github.com/web-infra-dev/rsbuild/tree/main/website/docs',
+          text: '📝 Editar está pagina en Github',
+        },
+      },
     ],
   },
   builderConfig: {

@@ -1,0 +1,88 @@
+# Environment Context
+
+El contexto del entorno es un objeto de solo lectura que proporciona información de contexto sobre el entorno actual.
+
+En los hooks de Rsbuild, puedes obtener el objeto de contexto del entorno a través del parámetro `environment` o `environments`.
+
+```ts
+type EnvironmentContext = {
+  name: string;
+  browserslist: string[];
+  config: NormalizedEnvironmentConfig;
+  distPath: string;
+  entry: RsbuildEntry;
+  htmlPaths: Record<string, string>;
+  tsconfigPath?: string;
+};
+```
+
+## name
+
+El nombre único del entorno actual se utiliza para distinguir y localizar el entorno, corresponde a la clave en la configuración de [entornos](/config/environments).
+
+- **Type:** `string`
+
+## browserslist
+
+El rango de navegadores objetivo con los que el proyecto es compatible. Ver detalles en [Browserslist](/guide/advanced/browserslist).
+
+- **Type:** `string[]`
+
+## config
+
+La configuración del entorno de Rsbuild después de la normalización.
+
+- **Type:**
+
+```ts
+type NormalizedEnvironmentConfig = DeepReadonly<{
+  dev: NormalizedDevConfig;
+  html: NormalizedHtmlConfig;
+  tools: NormalizedToolsConfig;
+  source: NormalizedSourceConfig;
+  server: NormalizedServerConfig;
+  output: NormalizedOutputConfig;
+  plugins?: RsbuildPlugins;
+  security: NormalizedSecurityConfig;
+  performance: NormalizedPerformanceConfig;
+  moduleFederation?: ModuleFederationConfig;
+}>;
+```
+
+## distPath
+
+La ruta absoluta del directorio de salida, corresponde a la configuración [output.distPath.root](/config/output/dist-path) en `RsbuildConfig`.
+
+- **Tipo:** `string`
+
+## entry
+
+El objeto de entrada de la opción [source.entry](/config/source/entry).
+
+- **Tipo:**
+
+```ts
+type RsbuildEntry = Record<string, string | string[] | EntryDescription>;
+```
+
+## htmlPaths
+
+La información de la ruta para todos los archivos HTML.
+
+Esta API devolverá un objeto, la clave es el nombre de la entrada y el valor es la ruta relativa del archivo HTML en el directorio `dist`.
+
+- **Type:**
+
+```ts
+type htmlPaths = Record<string, string>;
+```
+
+## tsconfigPath
+
+La ruta absoluta para el archivo `tsconfig.json` o `undefined` si el archivo `tsconfig.json` no existe en el proyecto actual.
+
+- **Type:**
+
+```ts
+type TsconfigPath = string | undefined;
+```
