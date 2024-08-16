@@ -1,10 +1,10 @@
 # Rsbuild Types
 
-This section describes some of the type definitions provided by the Rsbuild.
+Esta sección describe algunas de las definiciones de tipo proporcionadas por Rsbuild.
 
 ## RsbuildInstance
 
-The type of Rsbuild instance, corresponding to the return value of the [createRsbuild](/api/javascript-api/core#creatersbuild) method.
+El tipo de instancia de Rsbuild, correspondiente al valor de retorno del método [createRsbuild](/api/javascript-api/core#creatersbuild).
 
 ```ts
 import type { RsbuildInstance } from '@rsbuild/core';
@@ -14,7 +14,7 @@ let rsbuild: RsbuildInstance;
 
 ## RsbuildConfig
 
-The type of Rsbuild configuration.
+El tipo de configuración de Rsbuild.
 
 ```ts
 import type { RsbuildConfig } from '@rsbuild/core';
@@ -24,7 +24,7 @@ const config: RsbuildConfig = {
 };
 ```
 
-You can also import the type definitions of each field in the Rsbuild config:
+También puedes importar las definiciones de tipo de cada campo en la configuración de Rsbuild:
 
 ```ts
 import type {
@@ -42,7 +42,7 @@ import type {
 
 ## NormalizedConfig
 
-The type of Rsbuild configuration after normalization, corresponding to the return value of the [getNormalizedConfig](/plugins/dev/core#apigetnormalizedconfig) method.
+El tipo de configuración de Rsbuild después de la normalización, correspondiente al valor de retorno del método [getNormalizedConfig](/plugins/dev/core#apigetnormalizedconfig).
 
 ```ts
 import type { NormalizedConfig } from '@rsbuild/core';
@@ -50,7 +50,7 @@ import type { NormalizedConfig } from '@rsbuild/core';
 const config: NormalizedConfig = api.getNormalizedConfig();
 ```
 
-You can also import the type definitions of each field in the normalized config:
+También puedes importar las definiciones de tipo de cada campo en la configuración normalizada de Rsbuild:
 
 ```ts
 import type {
@@ -68,7 +68,7 @@ import type {
 
 ## NormalizedEnvironmentConfig
 
-The type of Rsbuild environment configuration after normalization, corresponding to the return value of the [`getNormalizedConfig({ environment })`](/plugins/dev/core#apigetnormalizedconfig) method.
+El tipo de configuración de entorno de Rsbuild después de la normalización, correspondiente al valor de retorno del método [`getNormalizedConfig({ environment })`](/plugins/dev/core#apigetnormalizedconfig).
 
 ```ts
 import type { NormalizedEnvironmentConfig } from '@rsbuild/core';
@@ -80,7 +80,7 @@ const config: NormalizedEnvironmentConfig = api.getNormalizedConfig({
 
 ## RsbuildContext
 
-The type of the [context property](/api/javascript-api/instance#rsbuildcontext) in the Rsbuild instance.
+El tipo de la propiedad [context](/api/javascript-api/instance#rsbuildcontext) en la instancia de Rsbuild.
 
 ```ts
 import type { RsbuildContext } from '@rsbuild/core';
@@ -90,7 +90,7 @@ const context: RsbuildContext = rsbuild.context;
 
 ## RsbuildPlugin
 
-The type of Rsbuild plugin.
+El tipo de plugin de Rsbuild.
 
 ```ts
 import type { RsbuildPlugin } from '@rsbuild/core';
@@ -103,7 +103,7 @@ const myPlugin: RsbuildPlugin = {
 
 ## RsbuildPluginAPI
 
-The type of the `api` object passed into the `setup` function in the Rsbuild plugin.
+El tipo del objeto `api` pasado a la función `setup` en el plugin de Rsbuild.
 
 ```ts
 import type { RsbuildPluginAPI } from '@rsbuild/core';
@@ -116,7 +116,7 @@ const myPlugin = {
 
 ## RsbuildTarget
 
-The type of build target.
+El tipo de destino de compilación.
 
 ```ts
 import type { RsbuildTarget } from '@rsbuild/core';
@@ -124,7 +124,7 @@ import type { RsbuildTarget } from '@rsbuild/core';
 
 ## CreateRsbuildOptions
 
-The param type of [createRsbuild](/api/javascript-api/core#creatersbuild) method.
+El tipo de parámetro del método [createRsbuild](/api/javascript-api/core#creatersbuild).
 
 ```ts
 import type { CreateRsbuildOptions } from '@rsbuild/core';
@@ -132,7 +132,7 @@ import type { CreateRsbuildOptions } from '@rsbuild/core';
 
 ## InspectConfigOptions
 
-The param type of [rsbuild.inspectConfig](/api/javascript-api/instance#rsbuildinspectconfig) method.
+El tipo de parámetro del método [rsbuild.inspectConfig](/api/javascript-api/instance#rsbuildinspectconfig).
 
 ```ts
 import type { InspectConfigOptions } from '@rsbuild/core';
@@ -140,7 +140,7 @@ import type { InspectConfigOptions } from '@rsbuild/core';
 
 ## Rspack
 
-Includes all types exported by `@rspack/core`, such as `Rspack.Configuration`.
+Incluye todos los tipos exportados por `@rspack/core`, como `Rspack.Configuration`.
 
 ```ts
 import type { Rspack } from '@rsbuild/core';

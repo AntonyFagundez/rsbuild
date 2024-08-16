@@ -365,7 +365,7 @@ function server(): Promise<StartServerResult>;
 
 - **Ejemplo**
 
-Start the server:
+Inicializar el servidor:
 
 ```ts
 import { logger } from '@rsbuild/core';
@@ -383,11 +383,11 @@ try {
 }
 ```
 
-`preview` returns the following parameters:
+`preview` retorna los siguientes parámetros:
 
-- `urls`: URLs to access server.
-- `port`: The actual listening port number.
-- `server`: Server instance object.
+- `urls`: URLs para acceder al servidor.
+- `port`: El puerto donde actualente escucha los cambios.
+- `server`: Instancia del servidor.
 
 ```ts
 const { urls, port, server } = await rsbuild.preview();
@@ -402,7 +402,7 @@ await server.close();
 
 Crear un objeto de compilación.
 
-When the `target` option of `createRsbuild` contains only one value, the return value is `Compiler`; when `target` contains multiple values, the return value is `MultiCompiler`.
+Cuando la opción `target` de `createRsbuild` contiene solo un valor, el valor de retorno es `Compiler`; cuando `target` contiene múltiples valores, el valor de retorno es `MultiCompiler`.
 
 - **Tipo:**
 
@@ -416,13 +416,13 @@ function CreateCompiler(): Promise<Compiler | MultiCompiler>;
 const compiler = await rsbuild.createCompiler();
 ```
 
-> In most scenarios, you do not need to use this API unless you need to custom the dev server or other advanced scenarios.
+> En la mayoría de los escenarios, no necesitas usar esta API a menos que necesites personalizar el servidor de desarrollo u otros escenarios avanzados.
 
 ## rsbuild.addPlugins
 
-Register one or more Rsbuild plugins, which can be called multiple times.
+Registra uno o más plugins de Rsbuild, que pueden ser llamados múltiples veces.
 
-This method needs to be called before compiling. If it is called after compiling, it will not affect the compilation result.
+Este método debe ser llamado antes de compilar. Si se llama después de compilar, no afectará el resultado de la compilación.
 
 - **Tipo:**
 
@@ -449,7 +449,7 @@ rsbuild.addPlugins([pluginFoo()], { after: 'bar' });
 
 ## rsbuild.getPlugins
 
-Get all the Rsbuild plugins registered in the current Rsbuild instance.
+Obtener todos los plugins de Rsbuild registrados en la instancia actual de Rsbuild.
 
 - **Tipo:**
 
@@ -465,9 +465,9 @@ console.log(rsbuild.getPlugins());
 
 ## rsbuild.removePlugins
 
-Removes one or more Rsbuild plugins, which can be called multiple times.
+Eliminar uno o más plugins de Rsbuild, que pueden ser llamados múltiples veces.
 
-This method needs to be called before compiling. If it is called after compiling, it will not affect the compilation result.
+Este método debe ser llamado antes de compilar. Si se llama después de compilar, no afectará el resultado de la compilación.
 
 - **Tipo:**
 
@@ -502,9 +502,9 @@ rsbuild.isPluginExists(pluginFoo().name); // true
 
 ## rsbuild.initConfigs
 
-The initConfigs method is used to initialize the internal configs of Rsbuild and return the Rspack config generated internally by Rsbuild.
+El método initConfigs se utiliza para inicializar las configuraciones internas de Rsbuild y devolver la configuración de Rspack generada internamente por Rsbuild.
 
-Usually, you do not need to call the initConfigs method, because it will be automatically called when methods such as [rsbuild.build](#rsbuildbuild), [rsbuild.startDevServer](#rsbuildstartdevserver) are called.
+Generalmente, no necesitas llamar al método initConfigs, porque se llamará automáticamente cuando se llamen métodos como [rsbuild.build](#rsbuildbuild), [rsbuild.startDevServer](#rsbuildstartdevserver).
 
 - **Tipo:**
 
@@ -524,9 +524,9 @@ console.log(rspackConfigs);
 
 ## rsbuild.inspectConfig
 
-The inspectConfig method is typically used for debugging the internal configuration of Rsbuild. It returns the internally generated Rsbuild config and Rspack config, serializes them into strings, and supports writing them to the disk.
+El método inspectConfig se utiliza típicamente para depurar la configuración interna de Rsbuild. Devuelve la configuración de Rsbuild y la configuración de Rspack generadas internamente, las serializa en cadenas y admite escribirlas en el disco.
 
-If you need to view the Rsbuild and Rspack configurations during the build process, you can use [debug mode](/guide/debug/debug-mode), or obtain them through hooks such as [onBeforeBuild](#rsbuildonbeforebuild), [onBeforeCreateCompile](#rsbuildonbeforecreatecompiler).
+Si necesitas ver las configuraciones de Rsbuild y Rspack durante el proceso de compilación, puedes usar el [modo de depuración](/guide/debug/debug-mode), o obtenerlas a través de ganchos como [onBeforeBuild](#rsbuildonbeforebuild), [onBeforeCreateCompiler](#rsbuildonbeforecreatecompiler).
 
 - **Tipo:**
 
@@ -560,7 +560,7 @@ async function InspectConfig(options?: InspectConfigOptions): Promise<{
 
 ### Example
 
-Get the content of configs in string format:
+Obtener el contenido de las configuraciones en formato de string:
 
 ```ts
 const { rsbuildConfig, bundlerConfigs } = await rsbuild.inspectConfig();
@@ -568,7 +568,7 @@ const { rsbuildConfig, bundlerConfigs } = await rsbuild.inspectConfig();
 console.log(rsbuildConfig, bundlerConfigs);
 ```
 
-Write the config content to disk:
+Escribir el contenido de la configuración en el disco:
 
 ```ts
 await rsbuild.inspectConfig({
@@ -578,9 +578,9 @@ await rsbuild.inspectConfig({
 
 ### Output Path
 
-You can set the output path using `outputPath`. The default value is [output.distPath.root](/config/output/dist-path).
+Puede establecer la ruta de salida usando `outputPath`. El valor predeterminado es [output.distPath.root](/config/output/dist-path).
 
-If `outputPath` is a relative path, it will be concatenated relative to the value of `output.distPath.root`. You can also set `outputPath` to an absolute path, in which case the files will be written directly to that path. For ejemplo
+Si `outputPath` es una ruta relativa, se concatenará en relación con el valor de `output.distPath.root`. También puede establecer `outputPath` en una ruta absoluta, en cuyo caso los archivos se escribirán directamente en esa ruta. Por ejemplo
 
 ```ts
 import path from 'node:path';

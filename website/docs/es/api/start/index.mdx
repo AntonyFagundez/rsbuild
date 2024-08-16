@@ -1,0 +1,68 @@
+# JavaScript API
+
+Rsbuild provee un conjunto completo de APIs de JavaScript para que los desarrolladores construyan soluciones de nivel superior sobre Rsbuild.
+
+## Ejemplo
+
+Ejemplo básico de cómo acceder a la API de JavaScript de Rsbuild.
+
+### 1. Instala Rsbuild
+
+Necesitas instalar el paquete `@rsbuild/core`:
+
+import { PackageManagerTabs } from '@theme';
+
+<PackageManagerTabs command="add @rsbuild/core -D" />
+
+### 2. Crea una instancia de Rsbuild
+
+Puedes llamar el método `createRsbuild` para crear una instancia de Rsbuild:
+
+```ts
+import { createRsbuild } from '@rsbuild/core';
+
+const rsbuild = await createRsbuild();
+```
+
+El método `createRsbuild` proporciona algunas opciones, que puedes aprender más en la [API - createRsbuild](/api/javascript-api/core#creatersbuild).
+
+### 3. Utiliza cualquiera de los métodos de la instancia
+
+La instancia provee algunos métodos, los cuales puedes usar de acuerdo a los escenarios de uso.
+
+Para iniciar el desarrollo local, se recomienda usar el método [rsbuild.startDevServer](/api/javascript-api/instance#rsbuild-startdevserver), el cual iniciará un servidor de desarrollo local.
+
+```ts
+await rsbuild.startDevServer();
+```
+
+Luego de iniciar el servidor de desarrollo, puedes ver los siguientes logs:
+
+```
+  > Local:    http://localhost:3000
+  > Network:  http://192.168.0.1:3000
+```
+
+Para desplegar la App en un entorno de producción, se recomienda usar el método [rsbuild.build](/api/javascript-api/instance#rsbuild-build), el cual construirá los archivos de producción.
+
+```ts
+await rsbuild.build();
+```
+
+> Para más información sobre los métodos de la instancia de Rsbuild, por favor lee la sección [Instancia de Rsbuild](/api/javascript-api/instance).
+
+Luego de completar los tres pasos anteriores, has aprendido el uso básico de Rsbuild. A continuación, puedes personalizar el proceso de construcción a través de los plugins de Rsbuild y las configuraciones de Rsbuild.
+
+## Formato de Salida
+
+Rsbuild provee salida en formatos tanto de Módulos ES como de CommonJS:
+
+```js title="index.mjs"
+import { createRsbuild } from '@rsbuild/core';
+```
+
+```js title="index.cjs"
+const { createRsbuild } = require('@rsbuild/core');
+```
+
+> Es recomendable usar el formato de `ES modules`, el cual está más en línea con los estándares de la comunidad.
